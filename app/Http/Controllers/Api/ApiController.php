@@ -20,7 +20,7 @@ class ApiController extends Controller
 
     protected function errorResponse(
         int $code,
-        string $message = null,
+        string $message = "",
         $data = null
     ): JsonResponse {
         return response()->json([

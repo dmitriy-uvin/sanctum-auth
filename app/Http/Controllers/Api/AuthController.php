@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Requests\Api\Auth\LoginHttpRequest;
 use App\Http\Requests\Api\Auth\RegisterHttpRequest;
 use App\Models\User;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -35,7 +36,7 @@ class AuthController extends ApiController
 
         if (!Auth::attempt($credentials)) {
             return $this->errorResponse(
-                'Credentials not match',
+                'Credentials do not match!',
                 JsonResponse::HTTP_UNAUTHORIZED
             );
         }
